@@ -17,6 +17,6 @@ Add it in your root settings.gradle at the end of repositories:
 Step 2. Add the dependency
 ```gradle
 	dependencies {
-	        implementation 'com.github.soiadmahedi:uchcharonbd:1.X.X'
+	        implementation 'com.github.soiadmahedi:uchcharonbd:v1.X.X'
 	}
 ```
