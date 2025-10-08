@@ -1,0 +1,38 @@
+plugins {
+	id 'com.android.application'
+}
+
+android {
+	compileSdk 35
+
+	defaultConfig {
+		applicationId "com.soiadmahedi.uchcharon"
+		namespace "com.soiadmahedi.uchcharon"
+		minSdkVersion 21
+		//noinspection OldTargetApi
+		targetSdkVersion 34
+		versionCode 1
+		versionName "1.0"
+	}
+	
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+	buildFeatures {
+		viewBinding true
+	}
+	compileOptions {
+		targetCompatibility JavaVersion.VERSION_17
+		sourceCompatibility JavaVersion.VERSION_17
+	}
+	buildToolsVersion '36.1.0'
+}
+
+dependencies {
+	implementation 'androidx.appcompat:appcompat:1.7.1'
+	implementation 'com.google.android.material:material:1.13.0'
+	implementation project(':uchcharonbd')
+}
