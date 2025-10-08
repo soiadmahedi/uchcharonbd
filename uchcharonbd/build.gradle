@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
@@ -8,7 +9,6 @@ android {
 
     defaultConfig {
         minSdk 21
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -19,14 +19,31 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create("release", MavenPublication) {
+                from components.findByName("release")
+
+                groupId = 'com.github.soiadmahedi'
+                artifactId = 'uchcharonbd'
+                version = '1.0.0'
+
+                // ঐচ্ছিকভাবে sources jar যোগ করতে পারো
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+            }
+        }
     }
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.13.0'
     testImplementation 'junit:junit:4.13.2'
