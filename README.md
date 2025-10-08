@@ -20,3 +20,19 @@ Step 2. Add the dependency
 	        implementation 'com.github.soiadmahedi:uchcharonbd:v1.X.X'
 	}
 ```
+
+Step 2. Import Classes
+```java
+import com.soiadmahedi.uchcharonbd.BanglaToEnglishUchcharon;
+import com.soiadmahedi.uchcharonbd.BanglaToSylhetiUchcharon;
+```
+
+Step 3. Convert Text - Uchcharon BD
+```java
+String outputText_en = BanglaToEnglishUchcharon.transliterate("আমি");
+String outputText_syl = BanglaToSylhetiUchcharon.convertToNagri("আমি");
+```
+
+## Results
+English: ami ,
+Sylheti Nagri: ꠀꠝꠤ
